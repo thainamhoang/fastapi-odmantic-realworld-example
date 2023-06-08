@@ -25,6 +25,11 @@ async def health_check():
     return {"status": "ok"}
 
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+
 app.include_router(user_router, tags=["user"])
 app.include_router(article_router, tags=["article"])
 app.include_router(comment_router, tags=["article"])

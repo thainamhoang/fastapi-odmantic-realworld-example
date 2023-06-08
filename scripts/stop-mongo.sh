@@ -1,2 +1,2 @@
 #!/bin/bash
-docker stop fastapi-odmantic-example
+docker stop realworld-example
