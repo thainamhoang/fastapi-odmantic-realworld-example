@@ -1,8 +1,12 @@
 # from typing import Optional
+import os
 
+from dotenv import load_dotenv
 from odmantic.fastapi import AIOEngineDependency
 from pydantic import BaseSettings
 from pydantic.types import SecretStr
+
+load_dotenv()
 
 
 class _Settings(BaseSettings):
@@ -11,9 +15,7 @@ class _Settings(BaseSettings):
     )
     ALGORITHM = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES = 30
-    MONGO_URI = (
-        "mongodb+srv://thainamhoang:mTLgcHql2urHs8WX@cluster0.rtq8bpw.mongodb.net/test"
-    )
+    MONGO_URI = os.getenv("MONGO_URI")
 
 
 # Make this a singleton to avoid reloading it from the env everytime
